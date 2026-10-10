@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 export const signup = async (req, res) => {
   try {
     const { fullName, email, password, bio } = req.body;
+    console.log(fullName,email,password,bio,"uday")
     if (!fullName || !email || !password || !bio) {
       return res.json({ success: false, message: "Missing Details" });
     }
@@ -57,7 +58,7 @@ export const login = async (req, res) => {
 };
 
 export const checkAuth = (req, res) => {
-  req.json({ success: true, user: req.user });
+  res.json({ success: true, user: req.user });
 };
 
 export const updateProfile = async (req, res) => {
